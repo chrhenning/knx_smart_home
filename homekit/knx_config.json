@@ -1,0 +1,102 @@
+{
+    "knxd_ip": "127.0.0.1",
+    "knxd_port": 6720,
+    "AllowWebserver": true,
+    "AllowKillHomebridge": false,
+    "Devices": [
+        {
+            "DeviceName": "Light ExampleRoom",
+            "Services": [
+                {
+                    "ServiceType": "Lightbulb",
+                    "ServiceName": "ExampleRoom Light",
+                    "Characteristics": [
+                        {
+                            "Type": "On",
+                            "Set": [
+                                "0/0/0"
+                            ],
+                            "Listen": [
+                                "0/0/1"
+                            ]
+                        }
+                    ],
+                    "KNXReadRequests": [
+                        "0/0/1"
+                    ]
+                }
+            ]
+        },
+        {
+            "DeviceName": "DimmableLight ExampleRoom",
+            "Services": [
+                {
+                    "ServiceType": "Lightbulb",
+                    "Handler": "dltDIM",
+                    "ServiceName": "ExampleRoom DimmableLight",
+                    "Characteristics": [
+                        {
+                            "Type": "On",
+                            "Set": [
+                                "0/0/2"
+                            ],
+                            "Listen": [
+                                "0/0/2"
+                            ]
+                        },
+                        {
+                            "Type": "Brightness",
+                            "Set": [
+                                "0/1/2"
+                            ],
+                            "Listen": [
+                                "0/1/2"
+                            ],
+                            "DPT": "DPT5.001"
+                        }
+                    ],
+                    "KNXReadRequests": [
+                        "0/1/2"
+                    ]
+                }
+            ]
+        },
+        {
+            "DeviceName": "Window ExampleRoom",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "ServiceName": "ExampleRoom Window",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "0/2/0"
+                            ],
+                            "Listen": [
+                                "0/2/1"
+                            ],
+                            "DPT": "DPT5.001",
+                            "Reverse": true
+                        },
+                        {
+                            "Type": "CurrentPosition",
+                            "Listen": [
+                                "0/2/1"
+                            ],
+                            "DPT": "DPT5.001",
+                            "Reverse": true
+                        },
+                        {
+                            "Type": "PositionState"
+                        }
+                    ],
+                    "KNXReadRequests": [
+                        "0/2/1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "GroupAddresses": []
+}
